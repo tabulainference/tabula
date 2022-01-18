@@ -1,0 +1,26 @@
+# Please note that we do not use one time pad in GC ReLU for simplicity.
+# This does not change the running time of the gc protocol
+# (in fact, gives Delphi implementaiton an advantage).
+
+N = 100
+
+client = Array(N, sint)
+server = Array(N, sint)
+zero = sint(0)
+
+@for_range_opt(N)
+def f(i):
+    client[i] = sint.get_input_from(0)
+    server[i] = sint.get_input_from(1)
+    
+answer = Array(N, sint)
+
+@for_range_opt(N)
+def h(i):
+    answer[i] = (client[i]+server[i] < zero).if_else(zero, client[i]+server[i])
+
+answer = [x.reveal() for x in answer]
+
+print_ln('%s', answer)
+
+

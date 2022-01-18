@@ -1,0 +1,25 @@
+# sint: secret integers
+
+# you can assign public numbers to sint
+
+a = sint(1)
+b = sint(2)
+
+def test(actual, expected):
+
+    # you can reveal a number in order to print it
+
+    actual = actual.reveal()
+    print_ln('expected %s, got %s', expected, actual)
+
+# private inputs are read from Player-Data/Input-P<i>-0
+# or from standard input if using command-line option -I
+
+#for i in 0, 1:
+#    print_ln('got %s from player %s', sint.get_input_from(i).reveal(), i)
+
+# some arithmetic works as expected
+
+test(a < b, 1)
+
+

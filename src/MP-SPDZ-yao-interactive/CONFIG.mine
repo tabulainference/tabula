@@ -1,0 +1,14 @@
+MY_CFLAGS += -I/usr/local/opt/openssl/include 
+MY_LDLIBS += -L/usr/local/opt/openssl/lib 
+USE_NTL = 1
+ARCH = -march=native
+MY_CFLAGS += -I/usr/local/opt/openssl/include
+MY_LDLIBS += -L/usr/local/opt/openssl/lib
+USE_NTL = 1
+ARCH = -march=native
+MY_CFLAGS += -I./local/include
+MY_LDLIBS += -Wl,-rpath -Wl,./local/lib -L./local/lib
+ARCH = -march=native
+MY_CFLAGS += -I./local/include
+MY_LDLIBS += -Wl,-rpath -Wl,./local/lib -L./local/lib
+ARCH = -march=native

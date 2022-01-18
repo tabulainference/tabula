@@ -1,0 +1,9 @@
+MY_CFLAGS = -DINSECURE
+MY_CFLAGS += -I/usr/local/opt/openssl/include
+MY_LDLIBS += -L/usr/local/opt/openssl/lib
+USE_NTL = 1
+ARCH = -march=native
+MY_CFLAGS += -I/usr/local/opt/openssl/include
+MY_LDLIBS += -L/usr/local/opt/openssl/lib
+USE_NTL = 1
+ARCH = -march=native

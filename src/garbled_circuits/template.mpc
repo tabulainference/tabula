@@ -1,0 +1,29 @@
+# Please note that we do not use one time pad in GC ReLU for simplicity.
+# This does not change the running time of the gc protocol
+# (this gives GC implementaiton an advantage).
+
+N = {{N}}
+Q = {{Q}}
+
+sint = sbitintvec.get_type(Q)
+
+client = Array(N, sint)
+server = Array(N, sint)
+answer = Array(N, sint)
+
+@for_range_opt(N)
+def f(i):
+    client[i] = sint.get_input_from(0)
+    server[i] = sint.get_input_from(1)
+
+#@for_range_opt(N)
+@for_range_opt_multithread(8,N)
+def h(i):
+    zero = sint(0)    
+    k = client[i]+server[i]
+    answer[i] = k.max(zero)
+
+answer = [x.reveal() for x in answer]
+
+print_ln('%s', answer)
+
